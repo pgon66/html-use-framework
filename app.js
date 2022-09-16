@@ -12,3 +12,13 @@ function resquestOfServer() {
         $("#show-values").css('display', 'block')
     });
 }
+
+function submitDataOfUser() {
+    const nameOfUser = $("#name").val()
+    const lastNameOfUser = $("#lastname").val()
+    const ageOfUser = $("#age").val()
+
+    console.log(nameOfUser)
+    console.log(lastNameOfUser)
+    console.log(ageOfUser)
+}
