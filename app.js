@@ -32,10 +32,23 @@ function submitDataOfUser() {
             "age": ageOfUser
         })
     }).done(function (response) {
-        console.log(response);
+        
+        if (response.success) {
+            $("#success-record-msg").css('display', 'block')
+
+            $("#name").val('')
+            $("#lastname").val('')
+            $("#age").val('')
+        }
+
     });
 
     console.log(nameOfUser)
     console.log(lastNameOfUser)
     console.log(ageOfUser)
+    
+}
+
+function closeSuccessMsg() {
+    $("#success-record-msg").css('display', 'none')
 }
