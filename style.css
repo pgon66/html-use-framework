@@ -85,3 +85,28 @@ button {
 #success-record-msg {
     display: none;
 }
+
+.error-record {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 500px;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: rgb(255, 202, 202);
+    color: rgb(71, 17, 17);
+}
+
+.error-record > div {
+    display: inline-block;
+}
+
+.error-record > div > svg {
+    position: relative;
+    top: 2px;
+    left: 5px;
+    cursor: pointer;
+}
+#error-record-msg {
+    display: none;
+}

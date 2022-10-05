@@ -16,7 +16,7 @@ function resquestOfServer() {
 
 function submitDataOfUser() {
     const nameOfUser = $("#name").val()
-    const lastNameOfUser = $("#lastname").val()
+    const lastNameOfUser = $("#last_name").val()
     const ageOfUser = $("#age").val()
 
     $.ajax({
@@ -28,7 +28,7 @@ function submitDataOfUser() {
         },
         "data": JSON.stringify({
             "name": nameOfUser,
-            "lastName": lastNameOfUser,
+            "last_name": lastNameOfUser,
             "age": ageOfUser
         })
     }).done(function (response) {
@@ -37,8 +37,26 @@ function submitDataOfUser() {
             $("#success-record-msg").css('display', 'block')
 
             $("#name").val('')
-            $("#lastname").val('')
+            $("#last_name").val('')
             $("#age").val('')
+        } else {
+            let errorMsg;
+
+            if(response.missingAttribute === 'name') {
+                errorMsg = 'O campo nome não pode ficar em branco.'
+            }
+
+            if(response.missingAttribute === 'last_name') {
+                errorMsg = 'O campo sobrenome não pode ficar em branco.'
+            }
+
+            if(response.missingAttribute === 'age') {
+                errorMsg = 'O campo idade não pode ficar em branco.'
+            }
+
+            console.log(response)
+            $("#error-record-msg").css('display', 'block')
+            $("#content-error-record-msg").html(errorMsg)
         }
 
     });
@@ -52,3 +70,8 @@ function submitDataOfUser() {
 function closeSuccessMsg() {
     $("#success-record-msg").css('display', 'none')
 }
+
+function closeErrorMsg() {
+    $("#error-record-msg").css('display', 'none')
+}
+
