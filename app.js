@@ -34,13 +34,19 @@ function submitDataOfUser() {
     }).done(function (response) {
         
         if (response.success) {
+
+            closeErrorMsg()
+            
             $("#success-record-msg").css('display', 'block')
 
             $("#name").val('')
             $("#last_name").val('')
             $("#age").val('')
         } else {
+
             let errorMsg;
+
+            closeSuccessMsg()
 
             if(response.missingAttribute === 'name') {
                 errorMsg = 'O campo nome não pode ficar em branco.'
